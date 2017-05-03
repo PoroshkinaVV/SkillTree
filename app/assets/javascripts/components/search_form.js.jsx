@@ -1,10 +1,10 @@
 var SearchForm = React.createClass({
   getInitialState: function() {
     return {  humanLevels: [
-                "Аспирантура",
                 "Бакалавриат",
                 "Магистратура",
                 "Специалитет"
+                // "Аспирантура"
               ],
               isChecked: false,
               selectedCheckboxes: []
