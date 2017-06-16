@@ -28,6 +28,7 @@ window.htypes = {
   "КСР": "Контроль самостоятельной работы",
   "Лаб": "Лабораторные работы",
   "Лек": "Лекции",
+  "Ауд": "Аудиторные",
   "Пр": "Практические занятия",
   "СРС": "Самостоятельная работа студента",
   "Экз": "Экзамен"
@@ -40,8 +41,22 @@ window.htype_bages = {
   "КСР": "info",
   "Лаб": "info",
   "Лек": "success",
+  "Ауд": "success",
   "Пр": "info",
   "СРС": "default",
+  "Экз": "danger"
+}
+
+window.htype_bgs = {
+  "Зач": "warning",
+  "К/п": "inverse",
+  "К/р": "inverse",
+  "КСР": "info",
+  "Лаб": "info",
+  "Лек": "success",
+  "Ауд": "success",
+  "Пр": "info",
+  "СРС": "inverse",
   "Экз": "danger"
 }
 
@@ -55,7 +70,18 @@ window.human_label_bages = {
   "Другое": "secondary"
 }
 
-window.htypes_order = ['Лек', 'Лаб', 'Пр', 'СРС', 'КСР', 'К/п', 'К/р', 'Зач', 'Экз']
+window.htypes_order = ['Лек', 'Ауд', 'Лаб', 'Пр', 'СРС', 'КСР', 'К/п', 'К/р', 'Зач', 'Экз']
+
+stringUtils = {
+  smartString: function (str, sep) {
+    sep = sep == "" ?  "" : sep || "-"
+    if (str != "" && str != undefined && str != null) {
+      return str
+    } else {
+      return sep
+    }
+  }
+}
 
 $(window).load(function(){
 	// accordion settings
