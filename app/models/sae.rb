@@ -3,6 +3,7 @@
 # Table name: saes
 #
 #  id         :integer          not null, primary key
+#  short_name :string
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

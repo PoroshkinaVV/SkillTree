@@ -26,7 +26,10 @@ class Specialty < ApplicationRecord
   belongs_to :department
   belongs_to :sae
 
+  DEPRECATED_SPECIALTIES = ["14.05.04"]#, "09.05.01"]
   ### Scopes
+  default_scope { where.not(code: DEPRECATED_SPECIALTIES) }
+
   scope :directions, -> { group(:direction, :human_level, :code)
     .joins("LEFT JOIN saes ON saes.id = specialties.sae_id")
     .select("

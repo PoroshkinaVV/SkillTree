@@ -35,6 +35,16 @@ body {
 	color: #fff;
 }
 
+.add-subject-btn {
+	display: none;
+}
+
+.hover-highlight:hover .add-subject-btn {
+	display: inline-block;
+	position: absolute;
+	right: 0px;
+}
+
 .hidden-column {
 	display: none;
 

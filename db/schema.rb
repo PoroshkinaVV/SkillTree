@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504205255) do
+ActiveRecord::Schema.define(version: 20170617124056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "academic_modules", force: :cascade do |t|
+    t.string "name"
+    t.string "name_eng"
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -63,6 +68,19 @@ ActiveRecord::Schema.define(version: 20170504205255) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sector_subjects", force: :cascade do |t|
+    t.integer "credit_units"
+    t.integer "sector_id"
+    t.integer "subject_id"
+    t.index ["sector_id"], name: "index_sector_subjects_on_sector_id", using: :btree
+    t.index ["subject_id"], name: "index_sector_subjects_on_subject_id", using: :btree
+  end
+
+  create_table "sectors", force: :cascade do |t|
+    t.string "name"
+    t.string "name_eng"
+  end
+
   create_table "specialties", force: :cascade do |t|
     t.integer  "dtype"
     t.string   "human_dtype"
@@ -79,6 +97,13 @@ ActiveRecord::Schema.define(version: 20170504205255) do
     t.string   "qualification"
     t.integer  "department_id"
     t.integer  "sae_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string  "name"
+    t.string  "name_eng"
+    t.integer "specialty_id"
+    t.integer "academic_module_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -103,4 +128,6 @@ ActiveRecord::Schema.define(version: 20170504205255) do
 
   add_foreign_key "link_specialty_disciplines", "disciplines"
   add_foreign_key "link_specialty_disciplines", "specialties"
+  add_foreign_key "sector_subjects", "sectors"
+  add_foreign_key "sector_subjects", "subjects"
 end

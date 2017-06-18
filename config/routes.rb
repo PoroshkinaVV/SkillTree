@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/specialties/:id' => 'specialties#show'
   get '/specialties/compare/:id/:comparison_id' => 'specialties#compare'
+  get '/subjects' => 'subjects#index'
 
   namespace :api do
     resources :specialties do
@@ -19,5 +20,7 @@ Rails.application.routes.draw do
     end
     get 'disciplines' => 'disciplines#index'
     get 'disciplines/compare' => 'disciplines#compare'
+    get 'subjects' => 'subjects#index'
+    get 'subjects/search' => 'subjects#search'
   end
 end
